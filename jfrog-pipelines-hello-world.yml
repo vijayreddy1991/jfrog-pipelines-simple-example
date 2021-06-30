@@ -1,5 +1,5 @@
 template: true   # required for local templates
-valuesFilePath: 
+valuesFilePath: ./valuess.yml
 
 resources:
   - name: myFirstRepo
