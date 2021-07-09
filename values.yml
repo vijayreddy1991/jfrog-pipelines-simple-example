@@ -1,3 +1,4 @@
 myRepo:
   gitProvider: my_github
   path: ajit-jain/jfrog-pipelines-simple-example
+  testValue: ajitjain1
