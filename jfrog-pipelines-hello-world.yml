@@ -21,8 +21,8 @@ resources:
 
 pipelines:
   - name: my_first_pipeline
-    configuration: 
-      nodePool: myDynamicPool
+    # configuration: 
+      # nodePool: myDynamicPool
     steps:
       - name: p1_s1
         type: Bash
@@ -71,8 +71,8 @@ pipelines:
             - write_output myPropertyBag commitSha=$commitSha runID=$current_runid
 
   - name: my_second_pipeline
-    configuration: 
-      nodePool: myDynamicPool
+    # configuration: 
+      # nodePool: myDynamicPool
     steps:
       - name: p2_s1
         type: Bash
