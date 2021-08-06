@@ -17,7 +17,7 @@ resources:
     type: PropertyBag
     configuration:
       commitSha: 1
-      runID: 1
+      runID: 1 
 
 pipelines:
   - name: my_first_pipeline
