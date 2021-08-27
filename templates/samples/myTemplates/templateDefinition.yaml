@@ -1,3 +1,13 @@
+resources:
+  - name: appRepo
+    type: GitRepo
+    configuration:
+      gitProvider: {{ .Values.myRepo.gitProvider }} # this will be replaced from values.yml
+      # Repository path, including org name/repo name
+      path: {{ .Values.myRepo.path }} # this will be replaced from values.yml
+      branches:
+        include: ^{{gitBranch}}$ 
+
 pipelines:
   - name: basic
     steps:

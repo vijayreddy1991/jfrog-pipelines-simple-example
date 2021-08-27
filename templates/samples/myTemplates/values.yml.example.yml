@@ -1,0 +1,5 @@
+foo:
+  name: bar
+myRepo:
+  gitProvider: my_github
+  path: ajit-jain/jfrog-pipelines-simple-example
