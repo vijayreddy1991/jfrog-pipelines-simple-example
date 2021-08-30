@@ -14,6 +14,9 @@ pipelines:
       - name: basic1
         type: Bash
         configuration:
+          inputResources:
+            # Sets up step to be triggered when there are commit events to myFirstRepo
+            - name: appRepo
           runtime:
             type: image
         execution:
@@ -29,6 +32,8 @@ pipelines:
         execution:
           onExecute:
             - printenv {{ .Values.foo.baz }}
+
+      {{ if eq "{{gitBranch}}" "master" }}
       - name: basic3
         type: Bash
         configuration:
@@ -39,3 +44,4 @@ pipelines:
         execution:
           onExecute:
             - printenv {{ .Values.foo.zoo }}
+      {{ end }}
