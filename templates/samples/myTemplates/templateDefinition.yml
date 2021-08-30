@@ -14,6 +14,9 @@ pipelines:
       - name: basic1
         type: Bash
         configuration:
+          inputResources:
+            # Sets up step to be triggered when there are commit events to myFirstRepo
+            - name: appRepo
           runtime:
             type: image
         execution:
