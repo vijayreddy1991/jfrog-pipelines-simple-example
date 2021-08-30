@@ -29,6 +29,8 @@ pipelines:
         execution:
           onExecute:
             - printenv {{ .Values.foo.baz }}
+
+      {{ if eq "{{gitBranch}}" "master" }}
       - name: basic3
         type: Bash
         configuration:
@@ -39,3 +41,4 @@ pipelines:
         execution:
           onExecute:
             - printenv {{ .Values.foo.zoo }}
+      {{ end }}
