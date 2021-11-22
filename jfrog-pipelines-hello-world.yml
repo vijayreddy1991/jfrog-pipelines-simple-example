@@ -32,7 +32,7 @@ pipelines:
           onExecute:
             # Data from input resources is available as env variables in the step
             - echo $res_myFirstRepo_commitSha
-            - echo "my test app"
+            - echo "my test app1"
             # The next two commands add variables to run state, which is available to all downstream steps in this run
             # Run state documentation: https://www.jfrog.com/confluence/display/JFROG/Creating+Stateful+Pipelines#CreatingStatefulPipelines-RunState
             - add_run_variables current_runid=$run_id
