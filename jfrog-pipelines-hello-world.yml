@@ -86,6 +86,10 @@ pipelines:
             - echo "CommitSha is $res_myPropertyBag_commitSha"
       - name: p2_s2
         type: Bash
+        configuration:
+          inputResources:
+            # Sets up step to be triggered when myPropertyBag is updated
+            - name: myPropertyBag
         execution:
           onExecute:
             # Retrieves the commitSha from input resource
