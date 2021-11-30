@@ -30,7 +30,7 @@ pipelines:
     configuration:
       environmentVariables:
         readOnly:
-          MESSAGE: "HELLO AJ!"
+          MESSAGE: "HELLO AJ1!"
     steps:
       - name: p1_s1
         type: Bash
