@@ -12,12 +12,6 @@ resources:
       branches:
         # Specifies which branches will trigger dependent steps
         include: ^{{gitBranch}}$ 
-
-  - name: myPropertyBag
-    type: PropertyBag
-    configuration:
-      commitSha: 1
-      runID: 1 
   
   - name: myPropertyBag1
     type: PropertyBag
@@ -69,7 +63,7 @@ pipelines:
           inputSteps:
             - name: p1_s2
           outputResources:
-            - name: myPropertyBag
+            - name: myPropertyBag1
         execution:
           onExecute:
             - echo $current_runid
@@ -78,7 +72,7 @@ pipelines:
             # Uses an utility function to update the output resource with the commitSha that triggered this run
             # Dependent pipelines can be configured to trigger when this resource is updated
             # Utility functions documentation: https://www.jfrog.com/confluence/display/JFROG/Pipelines+Utility+Functions
-            - write_output myPropertyBag commitSha=$commitSha runID=$current_runid
+            - write_output myPropertyBag1 commitSha=$commitSha runID=$current_runid
       {{ end }}
       
 
@@ -93,5 +87,5 @@ pipelines:
         execution:
           onExecute:
             # Retrieves the commitSha from input resource
-            - echo "CommitSha is $res_myPropertyBag_commitSha"
+            - echo "CommitSha is $res_myPropertyBag1_commitSha"
       
