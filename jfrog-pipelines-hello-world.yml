@@ -12,6 +12,12 @@ resources:
       branches:
         # Specifies which branches will trigger dependent steps
         include: ^{{gitBranch}}$ 
+
+  - name: myPropertyBag
+    type: PropertyBag
+    configuration:
+      commitSha: 1
+      runID: 1 
   
   - name: myPropertyBag1
     type: PropertyBag
@@ -84,8 +90,10 @@ pipelines:
           inputResources:
             # Sets up step to be triggered when myPropertyBag is updated
             - name: myPropertyBag1
+            - name: myPropertyBag
         execution:
           onExecute:
             # Retrieves the commitSha from input resource
             - echo "CommitSha is $res_myPropertyBag1_commitSha"
+     
       
