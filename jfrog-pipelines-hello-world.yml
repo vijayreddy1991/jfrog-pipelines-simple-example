@@ -87,6 +87,11 @@ pipelines:
     steps:
       - name: p2_s1
         type: Bash
+        configuration:
+          inputResources:
+            # Sets up step to be triggered when myPropertyBag is updated
+            - name: myPropertyBag1
+            - name: myPropertyBag
         execution:
           onExecute:
             # Retrieves the commitSha from input resource
