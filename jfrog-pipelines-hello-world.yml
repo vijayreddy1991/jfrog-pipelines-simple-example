@@ -30,7 +30,7 @@ pipelines:
     configuration:
       environmentVariables:
         readOnly:
-          MESSAGE: "HELLO AJ1!"
+          MESSAGE: "HELLO"
     steps:
       - name: p1_s1
         type: Bash
@@ -70,6 +70,7 @@ pipelines:
             - name: p1_s2
           outputResources:
             - name: myPropertyBag1
+            - name: myPropertyBag
         execution:
           onExecute:
             - echo $current_runid
