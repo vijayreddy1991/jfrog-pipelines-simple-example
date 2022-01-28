@@ -110,21 +110,21 @@ pipelines:
         type: Bash
         configuration:
           inputSteps:
-            - name: p2_s3
-        execution:
-          onExecute:
-            # Retrieves the commitSha from input resource
-            - echo "CommitSha is $res_myPropertyBag1_commitSha"
-            - echo "Step 4"
-      - name: p2_s4
-        type: Bash
-        configuration:
-          inputSteps:
             - name: p2_s2
         execution:
           onExecute:
             # Retrieves the commitSha from input resource
             - echo "CommitSha is $res_myPropertyBag1_commitSha"
             - echo "Step 3"
+      - name: p2_s4
+        type: Bash
+        configuration:
+          inputSteps:
+            - name: p2_s3
+        execution:
+          onExecute:
+            # Retrieves the commitSha from input resource
+            - echo "CommitSha is $res_myPropertyBag1_commitSha"
+            - echo "Step 4"
      
       
