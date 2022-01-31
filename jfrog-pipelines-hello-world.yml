@@ -100,7 +100,7 @@ pipelines:
         type: Bash
         configuration:
           inputSteps:
-            - name: p2_s2
+            - name: p2_s1
         execution:
           onExecute:
             # Retrieves the commitSha from input resource
