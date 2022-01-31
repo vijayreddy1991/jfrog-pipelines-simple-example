@@ -81,3 +81,31 @@ pipelines:
             # Utility functions documentation: https://www.jfrog.com/confluence/display/JFROG/Pipelines+Utility+Functions
             - write_output myPropertyBag1 commitSha=$commitSha runID=$current_runid
       
+
+  - name: my_second_pipeline
+    steps:
+      - name: p2_s1
+        type: Bash
+        configuration:
+          inputResources:
+            # Sets up step to be triggered when myPropertyBag is updated
+            - name: myPropertyBag1
+        execution:
+          onExecute:
+            # Retrieves the commitSha from input resource
+            - echo "CommitSha is $res_myPropertyBag1_commitSha"
+            - echo "Step 1"
+            # - sleep 15m
+      - name: p2_s3
+        type: Bash
+        configuration:
+          inputSteps:
+            - name: p2_s1
+        execution:
+          onExecute:
+            # Retrieves the commitSha from input resource
+            - echo "CommitSha is $res_myPropertyBag1_commitSha"
+            - echo "Step 3 starts"
+      
+     
+      
