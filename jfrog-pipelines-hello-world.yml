@@ -96,16 +96,6 @@ pipelines:
             - echo "CommitSha is $res_myPropertyBag1_commitSha"
             - echo "Step 1"
             # - sleep 15m
-      - name: p2_s2
-        type: Bash
-        configuration:
-          inputSteps:
-            - name: p2_s1
-        execution:
-          onExecute:
-            # Retrieves the commitSha from input resource
-            - echo "CommitSha is $res_myPropertyBag1_commitSha"
-            - echo "Step 2"
       - name: p2_s3
         type: Bash
         configuration:
