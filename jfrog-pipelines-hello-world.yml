@@ -94,7 +94,7 @@ pipelines:
           onExecute:
             # Retrieves the commitSha from input resource
             - echo "CommitSha is $res_myPropertyBag1_commitSha"
-            - echo "Step 1"
+            - echo "Step 2 has changed"
             # - sleep 15m
       - name: p2_s3
         type: Bash
