@@ -12,18 +12,6 @@ resources:
       branches:
         # Specifies which branches will trigger dependent steps
         include: ^{{gitBranch}}$ 
-  
-  - name: myPropertyBag1
-    type: PropertyBag
-    configuration:
-      commitSha: 2
-      runID: 2 
-
-  - name: myPropertyBag2
-    type: PropertyBag
-    configuration:
-      commitSha: 2
-      runID: 2 
 
 pipelines:
   - name: my_first_pipeline
@@ -74,7 +62,7 @@ pipelines:
           onExecute:
             # Demonstrates the availability of an env variable written to run state during p1_s1
             - echo $current_runid
-        - name: p1_s6
+      - name: p1_s6
         type: Bash
         configuration:
           inputSteps:
