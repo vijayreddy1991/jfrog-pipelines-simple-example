@@ -19,6 +19,12 @@ resources:
       commitSha: 2
       runID: 2 
 
+  - name: myPropertyBag2
+    type: PropertyBag
+    configuration:
+      commitSha: 2
+      runID: 2 
+
 pipelines:
   - name: my_first_pipeline
     configuration:
@@ -96,11 +102,26 @@ pipelines:
             - echo "CommitSha is $res_myPropertyBag1_commitSha"
             - echo "Step 2 has changed"
             # - sleep 15m
+      - name: p2_s2
+        type: Bash
+        configuration:
+          inputSteps:
+            - name: p2_s1
+        execution:
+          onExecute:
+            # Retrieves the commitSha from input resource
+            - echo "CommitSha is $res_myPropertyBag1_commitSha"
+            - echo "Step 2 has changed"
+
       - name: p2_s3
         type: Bash
         configuration:
           inputSteps:
             - name: p2_s1
+            - name: p2_s2
+          inputResources:
+            # Sets up step to be triggered when myPropertyBag is updated
+            - name: myPropertyBag2
         execution:
           onExecute:
             # Retrieves the commitSha from input resource
