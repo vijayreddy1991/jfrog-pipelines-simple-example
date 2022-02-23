@@ -96,11 +96,14 @@ pipelines:
           inputResources:
             # Sets up step to be triggered when myPropertyBag is updated
             - name: myPropertyBag1
+          outputResources:
+            - name: myPropertyBag2
         execution:
           onExecute:
             # Retrieves the commitSha from input resource
             - echo "CommitSha is $res_myPropertyBag1_commitSha"
             - echo "Step 2 has changed"
+            - write_output myPropertyBag2 commitSha=$commitSha runID=$current_runid
             # - sleep 15m
       - name: p2_s2
         type: Bash
