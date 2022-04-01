@@ -2,4 +2,4 @@ foo:
   name: bar
 myRepo:
   gitProvider: my_github
-  path: ajit-jain/jfrog-pipelines-simple-example
+  path: vijayreddy1991/jfrog-pipelines-simple-example
